@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Et eksempel på DOM-manipulation</title>
+  </head>
+  <body>
+    <div id="my-div"></div>
+    <script type="text/javascript">
+      const myDiv = document.getElementById('my-div');
+      const span = document.createElement('span');
+      span.innerHTML = 'Dette er en tekst med fed';
+      span.setAttribute('style', 'font-weight: bold;');
+      myDiv.appendChild(span);
+    </script>
+  </body>
+</html>

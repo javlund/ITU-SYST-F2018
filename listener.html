@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Eksempel på form listeners</title>
+  </head>
+  <body onload="toggleButton(true)">
+    <form onsubmit="submitForm(event)">
+      Skriv dit navn: <input id="navn" oninput="checkNavn(event)" placeholder="Navn her" autofocus />
+      <button id="knap">Anfør navn</button>
+    </form>
+    <script type="text/javascript" src="listener.js"></script>
+  </body>
+</html>
