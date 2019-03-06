@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Et eksempel på arbejde med forms</title>
+  </head>
+  <body onload="load();">
+    <form>
+      <fieldset>
+        <legend>Min fede form</legend>
+        <p>
+          <label>Navn <input type="text" /></label>
+        </p>
+        <p>
+          <label>Alder
+            <select>
+              <option>0-17</option>
+              <option>18-30</option>
+              <option>30-40</option>
+              <option>40+</option>
+            </select>
+          </label>
+        </p>
+        <button>Tryk her</button>
+      </fieldset>
+    </form>
+    <script>
+      function write(message, textField) {
+        if (message) {
+          textField.value = textField.value + message[0];
+          setTimeout(() => write(message.slice(1), textField), 100);
+        }
+      }
+
+      function toggleValues(select) {
+        const numberOfOptions = select.options.length;
+        setInterval(() => select.selectedIndex = (select.selectedIndex + 1) % numberOfOptions, 500);
+      }
+
+      function load() {
+        setTimeout(() => {
+          const elements = document.forms[0].elements;
+          const textField = elements[1];
+          write('Skrive skrive', textField);
+          textField.focus();
+
+          const select = elements[2];
+          toggleValues(select);
+
+          const button = elements[3];
+          button.disabled = true;
+          button.innerHTML = 'Tryk ikke alligevel';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
